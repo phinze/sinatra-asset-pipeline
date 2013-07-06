@@ -8,7 +8,7 @@ module Sinatra
       app.set_default :sprockets, Sprockets::Environment.new
       app.set_default :assets_precompile, %w(app.js app.css *.png *.jpg *.svg *.eot *.ttf *.woff)
       app.set_default :assets_prefix, 'assets'
-      app.set_default :assets_path, -> { File.join(public_folder, assets_prefix) }
+      app.set_default :assets_path, lambda { File.join(public_folder, assets_prefix) }
       app.set_default :assets_protocol, :http
       app.set_default :assets_css_compressor, :none
       app.set_default :assets_js_compressor, :none
